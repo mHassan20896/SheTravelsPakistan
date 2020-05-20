@@ -1,0 +1,274 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block bodyblock %}
+
+		<section class="default-banner active-blog-slider section-gap">
+			<div class="item-slider relative" style="background: url({% static 'img/slider1.jpg' %});background-size: cover;">
+				<div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+				<div class="container">
+					<div class="row fullscreen justify-content-center align-items-center">
+						<div class="col-md-10 col-12">
+							<div class="banner-content text-center">
+								<h4 class="text-white mb-20 text-uppercase">Discover the Colorful World</h4>
+								<h1 class="text-uppercase text-white">New Adventure</h1>
+								<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp <br>
+									or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="item-slider relative" style="background: url({% static 'img/slider2.jpg' %});background-size: cover;">
+				<div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+				<div class="container">
+					<div class="row fullscreen justify-content-center align-items-center">
+						<div class="col-md-10 col-12">
+							<div class="banner-content text-center">
+								<h4 class="text-white mb-20 text-uppercase">Discover the Colorful World</h4>
+								<h1 class="text-uppercase text-white">New Trip</h1>
+								<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp <br>
+									or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+								<!-- <a href="#" class="text-uppercase header-btn">Discover Now</a> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="item-slider relative" style="background: url({% static 'img/slider3.jpg' %});background-size: cover;">
+				<div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+				<div class="container">
+					<div class="row fullscreen justify-content-center align-items-center">
+						<div class="col-md-10 col-12">
+							<div class="banner-content text-center">
+								<h4 class="text-white mb-20 text-uppercase">Discover the Colorful World</h4>
+								<h1 class="text-uppercase text-white">New Experience</h1>
+								<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp <br>
+									or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+								<!-- <a href="#" class="text-uppercase header-btn">Discover Now</a> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Start about Area -->
+	<section class="section-gap">
+	<div class="row d-flex justify-content-center">
+				<div class="menu-content pb-40 col-lg-8">
+					<div class="title text-center">
+						<h1 class="mb-10">Intro</h1>
+					</div>
+				</div>
+			</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="about-heading col-lg-6 green-text">
+					<h2 class="pb-30 green-text">We PLAN <br>
+							You Travel</h2>
+							<p>
+							<strong>She Travels Pakistan</strong> the proud pioneer of female focused travel & tours service providers to & from Pakistan, established in 2014 with a dream to make solo travelling for women possible, by empowering them and opening
+							new doors to endless possibilities, providing them a safe comfortable and friendly environment to within Pakistan.
+						</p>
+						<br>
+						<p>
+							Recognizing the need to liberate women and setting the standards for trust, authenticity and flexibility <strong>She Travels Pakistan</strong> has expanded its services not only catering to women but to families, solo travelers,
+							children, groups and people belonging to all age groups.
+						</p>
+						<br>
+						<p>
+							Opening windows to breathtaking landscapes, cultures and diversity of Pakistan and beyond <strong>She Travels Pakistan</strong> is the definition of evolution in modern day travelling.
+						</p>
+				</div>
+				<div class="col-lg-6">
+					<img src="{% static 'img/about-test.jpg' %}" class="about-image" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section-gap">
+				<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+					<h1 class="mb-10">Packages</h1>
+					<p>Click/hover on the image to see packageS</p>
+					<div class="row justify-content-center">
+
+								<div class="col-md-4 col-sm-6 mb-10">
+									<div class="pckg-background box21">
+										<img class="pckg-img" src="{{ MEDIA_URL }}/{{pckg1.image}}" alt="">
+										<div class="box-content">
+											<h2 class="title" id="pckg-title">{{pckg1}}</h2>
+											<a id="pckg-title"><strong>STARTING FROM PKR {{pckg1.starting_Quote}}</strong></a>
+											<p>{% for facility in pckg1.facilities.all %}
+											{{ facility.name }}<br>
+											{% endfor %}</p>
+											<a href="{% url 'STP:quotation' package_title=pckg1.title %}" class="btn btn-primary">Get Quote</a>
+										</div>
+										<h3 class="pckg-title"><i class="location fa fa-location-arrow"></i>{{pckg1}}</h3>
+									</div>
+								</div>
+
+								<div class="col-md-4 col-sm-6 mb-10">
+									<div class="pckg-background box21">
+										<img class="pckg-img" src="{{ MEDIA_URL }}/{{pckg1.image}}" alt="">
+										<div class="box-content">
+											<h2 class="title" id="pckg-title">{{pckg1}}</h2>
+											<a id="pckg-title"><strong>STARTING FROM PKR {{pckg1.starting_Quote}}</strong></a>
+											<p>{% for facility in pckg1.facilities.all %}
+											{{ facility.name }}<br>
+											{% endfor %}</p>
+											<a href="{% url 'STP:quotation' package_title=pckg1.title %}" class="btn btn-primary">Get Quote</a>
+										</div>
+										<h3 class="pckg-title"><i class="location fa fa-location-arrow"></i>{{pckg2}}</h3>
+									</div>
+								</div>
+
+								<div class="col-md-4 col-sm-6 mb-10">
+									<div class="pckg-background box21">
+										<img class="pckg-img" src="{{ MEDIA_URL }}/{{pckg3.image}}" alt="">
+										<div class="box-content">
+											<h2 class="title" id="pckg-title">Interested to see other packages?</h2>
+											<a id="pckg-title"></a>
+											<p>Click on the button to see more from us</p>
+											<a href="{% url 'STP:package' %}" class="btn btn-primary">Click here</a>
+										</div>
+										<h3 class="pckg-title">See more<i class="location fa fa-toggle-right"></i></h3>
+									</div>
+								</div>
+
+					</div>
+				</div>
+			</section>
+
+		{% comment %} <section>
+			<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+				<h1 class="mb-10">Pricing</h1>
+				<p>Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+				<div class="card-deck mb-3 text-center">
+					<div class="card mb-4 shadow-sm">
+						<div class="card-header">
+							<h4 class="my-0 font-weight-normal">Free</h4>
+						</div>
+						<div class="card-body">
+							<h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+							<ul class="list-unstyled mt-3 mb-4">
+								<li>10 users included</li>
+								<li>2 GB of storage</li>
+								<li>Email support</li>
+								<li>Help center access</li>
+							</ul>
+							<button type="button" class="btn btn-lg btn-block btn-primary">Get Quote</button>
+						</div>
+					</div>
+					<div class="card mb-4 shadow-sm">
+						<div class="card-header">
+							<h4 class="my-0 font-weight-normal">Pro</h4>
+						</div>
+						<div class="card-body">
+							<h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
+							<ul class="list-unstyled mt-3 mb-4">
+								<li>20 users included</li>
+								<li>10 GB of storage</li>
+								<li>Priority email support</li>
+								<li>Help center access</li>
+							</ul>
+							<button type="button" class="btn btn-lg btn-block btn-primary">Get Quote</button>
+						</div>
+					</div>
+					<div class="card mb-4 shadow-sm">
+						<div class="card-header">
+							<h4 class="my-0 font-weight-normal">Enterprise</h4>
+						</div>
+						<div class="card-body">
+							<h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
+							<ul class="list-unstyled mt-3 mb-4">
+								<li>30 users included</li>
+								<li>15 GB of storage</li>
+								<li>Phone and email support</li>
+								<li>Help center access</li>
+							</ul>
+							<button type="button" class="btn btn-lg btn-block btn-primary">Get Quote</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section> {% endcomment %}
+
+		<!-- Start gallery Area -->
+		<section class="gallery-area" id="gallery">
+
+			<div class="row d-flex justify-content-center">
+				<div class="menu-content pb-40 col-lg-8">
+					<div class="title text-center">
+						<h1 class="mb-10">Our Team</h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-fluid">
+				<div class="row no-padding">
+					<div class="active-gallery">
+						{% for team_member in team_members %}
+						<div class="box15">
+							<img src="{{ MEDIA_URL }}/{{team_member.image}}" alt="">
+							<div class="box-content">
+								<h3 class="title">{{ team_member }}</h3>
+								<ul class="icon">
+									<li>{{ team_member.designation }}</li>
+								</ul>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End gallery Area -->
+
+		<!-- Start logo Area -->
+		<section class="section-gap">
+			<div class="container">
+				<div class="row">
+
+				</div>
+			</div>
+		</section>
+		<!-- End logo Area -->
+
+
+		{% comment %} <!-- start contact Area -->
+		<section class="contact-area section-gap" id="contact">
+			<div class="container">
+				<div class="row d-flex justify-content-center">
+					<div class="menu-content pb-60 col-lg-8">
+						<div class="title text-center">
+							<h1 class="mb-10">If you need, Just drop us a line</h1>
+							<p>Who are in extremely love with eco friendly system.</p>
+						</div>
+					</div>
+				</div>
+				<form class="form-area " id="myForm" action="mail.php" method="post" class="contact-form text-right">
+					<div class="row">
+						<div class="col-lg-6 form-group">
+							<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
+
+							<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control"
+								required="" type="email">
+
+							<input name="subject" placeholder="Enter your subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'" class="common-input mb-20 form-control" required="" type="text">
+						</div>
+						<div class="col-lg-6 form-group">
+							<textarea class="common-textarea mt-10 form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+							<button class="primary-btn mt-20">Send Message<span class="lnr lnr-arrow-right"></span></button>
+							<div class="alert-msg">
+							</div>
+						</div>
+					</div>
+				</form>
+
+			</div>
+		</section>
+		<!-- end contact Area --> {% endcomment %}
+
+{% endblock bodyblock %}

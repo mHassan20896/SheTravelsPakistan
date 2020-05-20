@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block bodyblock %}
+	{% if trip_categories %}
+		{% for trip_category in trip_categories  %}
+
+			<section class="section-gap" id="pckgs">
+
+				<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+					<h1 class="mb-10">{{trip_category}}</h1>
+					<p>Click/hover on the image to see packageS</p>
+					<div class="row justify-content-center">
+						{% for package in packages %}
+							{% if package.category.name == trip_category.name %}
+								<div class="col-md-4 col-sm-6 mb-10">
+									<div class="pckg-background box21">
+										<img class="pckg-img" src="{{ MEDIA_URL }}/{{package.image}}" alt="">
+										<div class="box-content">
+											<h2 class="title" id="pckg-title">{{package}}</h2>
+											<a id="pckg-title"><strong>STARTING FROM PKR {{package.starting_Quote}}</strong></a>
+											<p>{% for facility in package.facilities.all %}
+											{{ facility.name }}<br>
+											{% endfor %}</p>
+											<a href="{% url 'STP:quotation' package_title=package.title %}" class="btn btn-primary">Get Quote</a>
+										</div>
+										<h3 class="pckg-title"><i class="location fa fa-location-arrow"></i>{{package}}</h3>
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</section>
+		{% endfor %}
+	<!-- {% endif %}
+
+	{% if trip_categories %}
+
+	{% for trip_category in trip_categories  %}
+
+	<section class="section-gap">
+		<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+			<h1 class="mb-10">{{ trip_category.name }}</h1>
+			<p>Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+			<div class="card-deck mb-3 text-center justify-content-center">
+
+				{% for package in packages %}
+				{% if package.category.name == trip_category.name %}
+
+				<div class="container col-lg-3 row justify-content-center">
+					<div class="card mb-4 shadow-sm " style="background-image: url({{ MEDIA_URL }}/{{package.image}})">
+						<div class="background-img">
+							<div class="card-header">
+								<h4 class="my-0 font-weight-normal">{{ package.title }}</h4>
+							</div>
+							<div class="card-body">
+								<h1 class="card-title pricing-card-title"><small class="text-muted">Starting From </small><br>PKR {{ package.starting_Quote }} <small class="text-muted">/person</small></h1>
+								<ul class="list-unstyled mt-3 mb-4">
+									{% for facility in package.facilities.all %}
+									<li>{{ facility.name }}</li>
+									{% endfor %}
+								</ul>
+								<a href="{% url 'STP:quotation' package_title=package.title %}" class="btn btn-lg btn-block btn-primary">Get Quote</a>
+								{% comment %} <button type="button" class="btn btn-lg btn-block btn-primary"><a></a>Get Quote</button> {% endcomment %}
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	{% endfor %} -->
+
+	{% else %}
+	<h1>No Packages Available</h1>
+	{% endif %}
+
+{% endblock bodyblock %}

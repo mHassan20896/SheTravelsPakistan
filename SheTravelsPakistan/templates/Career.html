@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block bodyblock %}
+
+
+	<section class="feature-area section-gap" id="secvice">
+		<div class="container section-gap">
+			{% if object_list %}
+				<div class="row d-flex justify-content-center">
+					<div class="menu-content pb-60 col-lg-8">
+						<div class="title text-center">
+							<h1 class="mb-10">Available Jobs</h1>
+						</div>
+					</div>
+				</div>
+
+				<form>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<input type="text" class="form-control" placeholder="Job Position">
+						</div>
+						<div class="form-group col-md-6">
+							<p href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Location</p>
+							<div onclick="dropdown" class="dropdown-menu">
+								<a href="#" class="dropdown-item">Karachi</a>
+								<a href="#" class="dropdown-item">Lahore</a>
+								<a href="#" class="dropdown-item">Islamabad</a>
+							</div>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="primary-btn">Search<span class="lnr lnr-arrow-right"></span></button>
+						</div>
+					</div>
+				</form>
+
+				<div class="row">
+					{% for career_post in object_list %}
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="title d-flex flex-row pb-20">
+									<h4><a href="">{{ career_post }}</a></h4>
+								</div>
+								<p class="mb-30"><u><a href="{% url 'STP:job-description' pk=career_post.pk %}">Click here for details</a></u></p>
+							</div>
+						</div>
+					{% endfor %}
+				{% else %}
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">No Jobs Available</h1>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+	</section>
+
+
+
+	{% endblock bodyblock %}

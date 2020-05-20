@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+{% block bodyblock %}
+
+		<section class="contact-area section-gap" id="contact">
+			<div class="container">
+				<div class="title text-center">
+					<h1 class="mb-10">Tour Guide Registration</h1>
+					<p>Let us know who you are, we will contact you soon</p>
+				</div>
+				<form role="form" method="POST">
+					<legend>Registration Form</legend>
+					{% csrf_token %}
+					{{ form|bootstrap }}
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">Register</button>
+					</div>
+				</form>
+
+			</div>
+		</section>
+{% endblock bodyblock %}
